@@ -1,0 +1,60 @@
+NAVIGATING A COMMIT HISTORY
+
+How did viewing a diff between two versions of a file help you see the bug that
+was introduced?
+
+	answer: diff -u old_name.txt new_name.txt
+	
+	 compares the differences between each line of code in the according files (+ remplaces -)
+
+
+
+How could having easy access to the entire history of a file make you a more
+efficient programmer in the long term?
+
+     answer: facilite le 'déboggage' puisqu'on peut remonter aisément dans l'historique pour analyser les modifications apportées au fur et à mesure et apporter des corrections/améliorations aux niveaux qui nous conviennent => évite de devoir tout reprendre depuis le début... 
+
+
+
+What do you think are the pros and cons of manually choosing when to create a
+commit, like you do in Git, vs having versions automatically saved, like Google
+docs does?
+ 
+	answer: -pros: un commit est clairement identifié par un court message (avec identifiant dédié) => reconnaissance très précise donc accès facilité pour faire une modification ciblée. On garde le contrôle tout le long de la phase de développement de par l'emploi d'un commit 'logique' faisant référence à une partie spécifique du code (heaver vs footer, fonctions).
+
+	-cons: peut faire l'objet d'un oubli... ou une utilisation à mauvaise escient en commitant à l'emporte-pièce (cut-and-dried)
+
+	utilité: traquage bugs facilité ! This is one of the reasons it's so useful to make one commit per logical change and give each commit a good message (ex: speedind clones up for pappu game).
+
+
+Why do you think some version control systems, like Git, allow saving multiple
+files in one commit, while others, like Google Docs, treat each file separately?
+
+    answer: git permet la sauvegarde de plusieurs fichiers en un seul commit. En effet, un repo nécessite plusieurs fichiers relatifs au projet en développement qui interagissent les uns avec les autres.
+
+
+How can you use the commands git log and git diff to view the history of files?
+
+    answer: git log (--stat) pour voir l'historique complet des commits du projets avec leurs numéros.
+    		git diff "précédent_nouveau commits" pour voir précisément les modifs (insertions et délétions de lignes dans les fichiers pour comparatif).
+
+How might using version control make you more confident to make changes that
+could break something?
+
+     answer: git checkout n°commit pour revenir à un commit antérieur (à partir de git log) afin de rechercher un éventuel bug (exécution index.html par ex) puis git diff avec le commit antérieur valide pour répérer l'erreur rattachée au commit "défectueux". 
+     +++ Possibilité de revenir au dernier commit "valide" tjs avec git checkout n°dernier_commit (rétablissement historique)
+
+Now that you have your workspace set up, what do you want to try using Git for?
+ 
+ answer: workspace set-up : config pour sublime text editor... pour committer depuis Sublime...
+  mv Téléchargements/git-completion.bash + git-prompt.sh + .bashrc (.gitconfig existed already in $/home aka ~)
+  
+  rappel: ls -a: .fichier caché, trick pour modif du contenu 
+
+  more to learn: https://www.cyberciti.biz/tips/howto-linux-unix-bash-shell-setup-prompt.html
+
+Retour sur git checkout n°commit:  l'ensemble des fichiers du repo sont concernés lors d'un commit; ils constituent un état "constant" à un moment donnné(un "instantané") comme au moment d'une prise de vue.
+Par conséquent, il est envisageable qu'un git checkout modifie l'état de plus d'un fichier voir de tous au sein du repository.
+
+nota: un commit n'est autorisé qu'en cas d'update effectif !! (off course)
+
