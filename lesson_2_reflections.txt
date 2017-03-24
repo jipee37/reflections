@@ -1,9 +1,9 @@
 What happens when you initialize a repository? Why do you need to do it?
 
-git init: creates a new Git repository.
-git status : shows what files have changed since the last commit.
+	- git init: creates a new Git repository.
+	- git status : shows what files have changed since the last commit.
 
-création fichier fichier .git pour "traquer" les métadonnées relatives à l'historique du projet.
+	Création fichier fichier .git pour "traquer" les métadonnées relatives à l'historique du projet.
 
 
 How is the staging area different from the working directory and the repository?
@@ -12,13 +12,37 @@ What value do you think it offers?
 How can you use the staging area to make sure you have one commit per logical
 change?
 
+	- git add nom_fichier: ajout dans le staging area pour connaître les fichiers du projet à suivre (et donc connaître l'historique des modifications apportées); permet ainsi de les commiter.
+	
+	- git reset nom_fichier: replace le fichier malencontreusement ajouté dans le working directory.
+
+	- git diff (no arguments): comparaison entre staging area et working directory. Une fois les modifs validées (git add nom_fichier), l'état du fichier étant similaire dans chaque entitée, on ne détecte plus de différence.
+
+	-git diff --staged: comparaison entre staging area et repository (commit le plus récent). Spécifie donc un update n'ayant pas été encore commité (en attente). 
+
+	-git reset --hard: supprime modifs au niveau du WD mais également du staging area.
+
+	-git checkout master: en relation avec le 'detached head state message' (obtenu par checkout old_commit), où Git avertit l'utilisateur que ce commit ancien n'est pas labellé avec un nom de branche.
+
+
+
 What are some situations when branches would be helpful in keeping your history
 organized? How would branches help?
 
+	- git branch (no arguments): exprime la branche courante.
+	- git branch name_branch : création nvlle branche.
+	- git checkout name_branch : switch pour update sur la nouvelle branche labellisée.
+
+	Utilisation pple: tester nouvelles fonctionnalités sans interférer sur le projet principal.
+
+
 How do the diagrams help you visualize the branch structure?
+
+
 
 What is the result of merging two branches together? Why do we represent it in
 the diagram the way we do?
+
 
 What are the pros and cons of Gitâ€™s automatic merging vs. always doing merges
 manually?
