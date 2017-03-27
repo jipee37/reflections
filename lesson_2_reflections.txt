@@ -75,3 +75,19 @@ What are the pros and cons of Gitâ€™s automatic merging vs. always doing me
 manually?
 
 	b) faire un merge manuel permet de garder le contrôle sur le code en comparant son propre code (modifié dans master) avec la partie "merged commune" (initiale) ainsi que les modifs effectuées par un collaborateur concernant cette partie analogue. Dès lors, il devient possible d'adapter son code de manière judicieuse en confrontant éventuellement son point de vue avec l'autre utilisateur.
+
+	lesson_3 :
+
+	$ git config --global credential.helper 'cache --timeout=3600' or cache (15 min en cache)
+	# Set the cache to timeout after 1 hour (setting is in seconds)
+
+	1) Github: création du new repository.
+	- git remote : pour voir et créer des remotes (établir le lien à distance entre le repo Github et celui présent en local sur ma machine).
+
+	- git remote add (pour établir le lien à partir du repo Github) origin https://github.com/jipee37/reflections.git
+	
+	- git remote -v (verbose) 
+
+	nota: origin (par défaut) désigne le premier argument soit l'appellation standard du repo Github (suivi du lien https://)
+
+	- git push origin (= le remote Github recueillant les données)master (name of local branch to be pushed)
