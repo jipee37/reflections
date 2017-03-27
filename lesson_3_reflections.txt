@@ -1,6 +1,8 @@
 When would you want to use a remote repository rather than keeping all your work
 local?
-
+    Avantages: disponibilité à tout moment donc consultable depuis n'importe quelle machine.
+               sécurité en cas de pertes de données (crash disque dur par ex).
+               en mode partage pour projets collaboratifs.
     
 Why might you want to always pull changes manually rather than having Git
 automatically stay up-to-date with your remote repository?
