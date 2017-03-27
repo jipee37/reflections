@@ -38,11 +38,40 @@ organized? How would branches help?
 
 How do the diagrams help you visualize the branch structure?
 
+    - git log --graph --oneline master branch_name
 
+    Notions de "reachability" : détachement sur une branche à partir d'un git checkout commit (retour à un commit antérieur dont l'update sera détaché obligatoirement de la branche master par ex mais dépendra donc du commit parent).
+
+    nota: utilité d'une représentation graphique symbolisant les commits par branche ainsi que la non-linéarité de ceux-ci (selon checkout branch ou checkout commit = nouveau point de départ).	
 
 What is the result of merging two branches together? Why do we represent it in
 the diagram the way we do?
 
+   - git checkout -b new_branch-name: pour créer une nouvelle branche qui contiendra les futurs commits à partir du "checkout commit" (detached from HEAD qui signifie commit en cours).
+
+   - git merge master branch_name (coins par ex): rappatrie l'historique des commits de la new_feature dans la master (depuis celle-ci => git branch ou git checkout master).
+
+   nota: git merge --abort: restaure l'état préalable au merge.
+
+   - si no conflicts => git log pour consulter l'historique global (commits classés par date donc intercalement possible...)
+
+   - git show n°commit (suite à git diff com1 com2) pour visualiser l'update avec le commit parent (automatique).
+
+   - git branch -d (delete) branch_name: effacement de la branche (son appellation, pas les commits !)
+
+   exo: this.color="yellow";
+   		this.solid="true"; rajout d'une nouvelle fonctionalité à la fonction Coin.
+
+   		a) git show n°commit (add color) pour étudier l' ajout de la couleur par le code (game.js).
+   		b) git diff --graph --oneline pour visualiser (à partir du merge) l'insertion de la branche coin et comparer son commit final avec celui précédent l'initialisation de la branche.
+   		Ainsi, on repère la création de la fonction Coin.
+   		c) Désormais, on peut updater game.js
+   		d)on teste dans le navigateur
+   		e)git diff pour la forme(check notre modif à nouveau et on repère les 2 lignes + en vert correspondantes) puis add et commit dans la foulée !!!
+   	
+   	nota: create the merge node: git log -n 1 (voir le dernier commit pour vérifier son intitulé par ex.)
 
 What are the pros and cons of Gitâ€™s automatic merging vs. always doing merges
 manually?
+
+	b) faire un merge manuel permet de garder le contrôle sur le code en comparant son propre code (modifié dans master) avec la partie "merged commune" (initiale) ainsi que les modifs effectuées par un collaborateur concernant cette partie analogue. Dès lors, il devient possible d'adapter son code de manière judicieuse en confrontant éventuellement son point de vue avec l'autre utilisateur.
