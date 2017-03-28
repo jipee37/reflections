@@ -86,8 +86,10 @@ manually?
 
 	- git remote add (pour établir le lien à partir du repo Github) origin https://github.com/jipee37/reflections.git
 	
-	- git remote -v (verbose) 
+	- git remote -v (verbose)
 
 	nota: origin (par défaut) désigne le premier argument soit l'appellation standard du repo Github (suivi du lien https://)
 
-	- git push origin (= le remote Github recueillant les données)master (name of local branch to be pushed)
+	- git push origin (= le remote Github recueillant les données) master (name of local branch to be pushed)
+
+	- git pull origin master (= ici nom de la branche Github à rapatrier)

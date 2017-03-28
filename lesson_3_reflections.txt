@@ -7,17 +7,47 @@ local?
 Why might you want to always pull changes manually rather than having Git
 automatically stay up-to-date with your remote repository?
 
-    
+    - git pull origin master : la création d'un commit depuis origin (remote repository) ne suffit pas à mettre à jour automatiquement le repo en local d'où nécessité d'éxécuter la commande.
+
+    - fork: clonage d'un dépôt Github sur ma propre plate-forme Github. Possibilité de cloner le dépôt en local pour le modifier.
+
+    - git push (origin master)
+
+    nota: supprimer fichier dans git (i.e: déplacement (mv), renommage)
+
+    - git rm nom_fichier: supression dans répertoire de travail et dans l'index.
+
+     <=> rm nom_fichier
+         git add nom_fichier (pour supprimer au niveau indexation)
+
+    -git status pour confimation.
 
 Describe the differences between forks, clones, and branches.  When would you
 use one instead of another?
 
-   
+	fork: repo Github à "forker" (rapatriement sur son compte perso créditant le créateur du repo original). Modifs ultérieures et partage éventuel (collaborateur) avec la méthode du clonage (git clone adresse_https_perso) sans interférer avec le dépôt original. Possibilité de créer des branches pour exprimer de nouvelles fonctionnalités.
+
+	Cause for conflicts (collaboration): modif sur une même ligne de code du collègue (suppression/ajout) observable depuis Github (commit repéré = push du collègue puis git diff pour checker modifs)
+    Pour etre à jour: "merger" les branches en local et à distance (remote on Github)
+
+    !! - git pull origin master = git fetch	origin (mis à jour des copies locales soit origin/master pour chaque branche appartenant à "origin remote" donc depuis modifs Github)
+    							  git merge master origin/master (tjs en local)
+
+nota:  - git log origin/master: pour inspecter les copies locales (historique commits).
+       - git diff origin/master master
+    
+    https://classroom.udacity.com/courses/ud775/lessons/3105028581/concepts/33526188150923
+
+     - git branch -a : pour voir les remotes (origin/master)
+
+     - git push : après validation résol conflit, mis à jour sur Github.
+
+     Fast-Forward Merges: key is reachability (merging branch b into a: get a from b)
 
 What is the benefit of having a copy of the last known state of the remote
 stored locally?
 
-  
+     - On pourra toujours se mettre à jour sur un projet commun après interruptions (git pull)
 
 How would you collaborate without using Git or GitHub?  What would be easier,
 and what would be harder?
