@@ -51,9 +51,43 @@ stored locally?
 
 How would you collaborate without using Git or GitHub?  What would be easier,
 and what would be harder?
- 
+ 	
+
+ 	Making a pull request: 
+ 	but: to get feedback on your project before updating the master branch
+ 		- git branch different-oil (faire changement local depuis une branche séparée de la master du fork pour éviter de la casser en cas de modif inappropriée)
+ 		- git checkout different-oil
+ 		- git add cake-recipe.txt (changes have been made)
+ 		- git commit 
+ 		- git push origin different-oil (visibilité de la modif sur Github pour le collaborateur)
+
+ 		faire la pull request pour permettre la consultation et laisser commentaires.
+ 		Une fois accord établi, faire merge dans la master.
+
+ 		!! sélectionner son base fork (fork original par défaut) pour merger
+
+ 		reception par email
+ 		Possibilité de laisser un commentaire à l'envoyeur aprè consultation de la modif.
+
 
 When would you want to make changes in a separate branch rather than directly in
 master?  What benefits does each approach have?
 
-   
+        Résol conflits suite à pull request (meme ligne modifiée des 2 côtés) :
+
+        - git pull origin master (depuis branche master!!!) : pour voir la modif de sarah
+        rappel : - git fetch (observer la modif)
+        	     - git merge origin/master master
+
+        - git checkout different-oil (pour incorporer changements Sarah)
+        - git merge master different-oil => Merge conflict à résoudre puis
+        - git commit
+        - git log: voir les modifs dans la branche different-oil
+        - git push origin different-oil (tjs sur different-oil)
+
+
+Reflect: When to use a separate branch
+
+You just saw that the workflow when making changes in a separate branch is more complicated than working directly in master, especially when you need to stay up-to-date with changes others are making. Rather than simply pulling and pushing, you need to pull changes into your local master branch, merge the local master into your branch (different-oil, in our case), then push your branch to the remote before finally merging your branch into master, either locally or on GitHub.
+
+
